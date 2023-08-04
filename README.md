@@ -12,7 +12,7 @@ Technologies used:
 - As a user, I want the ability to be able to see my wrong choice for a few seconds after I click it
 - I want to see whether it's my turn or the other player's
 - I want to see what my current score is
-- I want to see what the other players
+- I want to see what the other player's score is
 - I want to see a running tally of wins and losses (for no more than 10 consecutive games) 
 
 #### Icebox Items
