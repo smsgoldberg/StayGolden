@@ -15,6 +15,12 @@ Technologies used:
 - I want to see what the other players
 - I want to see a running tally of wins and losses (for no more than 10 consecutive games) 
 
+#### Icebox Items
+
+ - I'd love to be able to add bark sound effects when a correct match is selected
+ - Dark mode toggle on/off
+ - Animate game tokens at iinitialization, i.e. having them drop onto the screen
+
 #### Wireframes
 
 ![image](img/stayGoldenMain.png)
