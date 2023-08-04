@@ -23,8 +23,8 @@ Technologies used:
 
 #### Wireframes
 
-![image](img/stayGoldenMain.png)
+![image](img/stayGoldenMainRevised.png)
 
-![image](img/stayGoldenSelection.png)
+![image](img/stayGoldenSelectionRevised.png)
 
-![Image](img/stayGoldenWin.png)
+![Image](img/stayGoldenWinRevised.png)
