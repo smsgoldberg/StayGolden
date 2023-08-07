@@ -26,9 +26,8 @@ initializeGame();
 function initializeGame() {
   //the win condition will be set to null
   endCondition = null;
-  board=[];
-  shuffleTiles(mergedDogArray);
-  populateBoard();
+ const shuffledTiles = shuffleTiles(mergedDogArray);
+  populateBoard(shuffledTiles);
 }
 
 //shuffle the dog tiles
@@ -38,8 +37,9 @@ function shuffleTiles(dogArray) {
   //i should start at 0 since everything is zero-indexed
   for (i = 0; i < dogArray.length; i++) {
        j = Math.floor(Math.random() * (i +1));
-       dogArray[k] = dogArray[i];
-       dogArray[i] = dogArray[j];
+       dogArray[i] = dogArray[k];
+       dogArray[j] = dogArray[i];
+       dogArray[k] = dogArray[j];
   }
     return dogArray;
   }
@@ -47,7 +47,7 @@ function shuffleTiles(dogArray) {
 //populate the board 
 function populateBoard() {
    //first, let's shuffle the merged array 
- const shuffledDogArray =   shuffleTiles(mergedDogArray);
+ const shuffledDogArray =  shuffleTiles(mergedDogArray);
  console.log(shuffledDogArray);
 
  /* //now let's try distributing the shuffled tiles across the board
