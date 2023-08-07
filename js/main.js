@@ -65,6 +65,7 @@ function initializeGame() {
   //the win condition will be set to null
   endCondition = null;
  const shuffledTiles = shuffleTiles(mergedDogArray);
+ console.log(shuffledTiles);
   populateBoard(shuffledTiles);
 }
 
@@ -75,9 +76,9 @@ function shuffleTiles(dogArray) {
   //i should start at 0 since everything is zero-indexed
   for (i = 0; i < dogArray.length; i++) {
        j = Math.floor(Math.random() * (i +1));
-       dogArray[i] = dogArray[k];
-       dogArray[j] = dogArray[i];
-       dogArray[k] = dogArray[j];
+       dogArray[k] = dogArray[i];
+       dogArray[i] = dogArray[j];
+       dogArray[j] = dogArray[k];
   }
     return dogArray;
   }
