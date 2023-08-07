@@ -39,6 +39,8 @@ header {
 section {
     border: 1px solid black;
     display: grid;
+    grid-template-columns: repeat(4, 15vmin);
+    grid-template-rows: repeat(4, 15vmin)
 }
 
 .circles {
@@ -69,7 +71,7 @@ button {
     font-size: 24px;
 }
 
-img {
+/*img 
     border-radius: 50%;
     border: 1px solid #A63429
-}
+}*/

@@ -48,10 +48,11 @@ function shuffleTiles(dogArray) {
   //i should start at 0 since everything is zero-indexed
   for (i = 0; i < dogArray.length; i++) {
        j = Math.floor(Math.random() * (i +1));
-       let dogArray[i] = dogArray[j];
+       dogArray[i] = dogArray[j];
        dogArray[j] = dogArray[k];
   }
     return dogArray;
+  }
 }
 
 /*---objects---*/
@@ -66,7 +67,7 @@ class dog {
 const swimmingDog = new dog(1, blue);
 imageArray.push(swimmingDog);
 
-const smilingDog = new dog(1, green);
+const smilingDog = new dog(2, green);
 imageArray.push(smilingDog);
 
 const puppyDog = new dog(3, yellow);
