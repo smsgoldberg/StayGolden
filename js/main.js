@@ -38,7 +38,7 @@ imageArray.push(runningDog);
 /*-----constants -----*/
 //we will keep all our images in an image array - and randomize their positioning everytime the game is initialized
 //const imageArray = [];
-const matchArray = imageArray.map((x) => x * 1);
+const matchArray = Array.from(imageArray);
 const mergedDogArray = imageArray.concat(matchArray);
 console.log(mergedDogArray);
 
