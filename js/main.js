@@ -27,8 +27,22 @@ function initializeGame() {
   //the win condition will be set to null
   endCondition = null;
   board=[];
+  shuffleTiles(mergedDogArray);
   populateBoard();
 }
+
+//shuffle the dog tiles
+function shuffleTiles(dogArray) {
+  let i, j, k;
+  //let's at least try a fisher-yates shuffle
+  //i should start at 0 since everything is zero-indexed
+  for (i = 0; i < dogArray.length; i++) {
+       j = Math.floor(Math.random() * (i +1));
+       dogArray[k] = dogArray[i];
+       dogArray[i] = dogArray[j];
+  }
+    return dogArray;
+  }
 
 //populate the board 
 function populateBoard() {
@@ -43,27 +57,9 @@ function populateBoard() {
     circle[i] = shuffledDogArray[i];
   });
   */
-
-//shuffle the dog tiles
-function shuffleTiles(dogArray) {
-  let i, j, k;
-  //let's at least try a fisher-yates shuffle
-  //i should start at 0 since everything is zero-indexed
-  for (i = 0; i < dogArray.length; i++) {
-       j = Math.floor(Math.random() * (i +1));
-       dogArray[i] = dogArray[j];
-       dogArray[j] = dogArray[k];
-  }
-    return dogArray;
-  }
-
-  /*for (tile in tiles) {
-    for (i = 0; i < shuffledDogArray.length; i++) {
-     tile[i] = shuffledDogArray[i];
-    }
-    console.log(tile);
- }*/
 }
+
+
 
 /*---objects---*/
 
