@@ -1,7 +1,7 @@
 /*-----constants -----*/
 //we will keep all our images in an image array - and randomize their positioning everytime the game is initialized
 const imageArray = [];
-const matchArray = imageArray.map();
+const matchArray = imageArray.map((x) => x * 1);
 const mergedDogArray = imageArray.concat(matchArray);
 
 /*-----state variables ----*/
@@ -10,8 +10,8 @@ let player;
 let endCondition; 
 
 /*---cached elements---*/
- let scoreboard = document.querySelector(h2);
- let playAgainButton = document.querySelector(button);
+ let scoreboard = document.querySelector('h2');
+ let playAgainButton = document.querySelector('button');
  let tiles = document.querySelector('.circles');
 
 /* --- event listeners ---  */
@@ -26,6 +26,7 @@ initializeGame();
 function initializeGame() {
   //the win condition will be set to null
   endCondition = null;
+  board=[];
   populateBoard();
 }
 
