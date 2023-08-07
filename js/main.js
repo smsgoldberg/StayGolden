@@ -64,26 +64,26 @@ class dog {
     }
 }
 
-const swimmingDog = new dog(1, blue);
+const swimmingDog = new dog(1, 'blue');
 imageArray.push(swimmingDog);
 
-const smilingDog = new dog(2, green);
+const smilingDog = new dog(2, 'green');
 imageArray.push(smilingDog);
 
-const puppyDog = new dog(3, yellow);
+const puppyDog = new dog(3, 'yellow');
 imageArray.push(puppyDog);
 
-const olderDog = new dog(4, red);
+const olderDog = new dog(4, 'red');
 imageArray.push(olderDog);
 
-const sleepingDog = new dog(5, purple);
+const sleepingDog = new dog(5, 'purple');
 imageArray.push(sleepingDog);
 
-const jumpingDog = new dog(6, white); 
+const jumpingDog = new dog(6, 'white'); 
 imageArray.push(jumpingDog);
 
-const ballDog = new dog(7, black);
+const ballDog = new dog(7, 'black');
 imageArray,push(ballDog);
 
-const runningDog = new dog(8, orange);
+const runningDog = new dog(8, 'orange');
 imageArray.push(runningDog);
