@@ -34,13 +34,15 @@ function initializeGame() {
 function populateBoard() {
    //first, let's shuffle the merged array 
  const shuffledDogArray =   shuffleTiles(mergedDogArray);
+ console.log(shuffledDogArray);
 
-  //now let's try distributing the shuffled tiles across the board
+ /* //now let's try distributing the shuffled tiles across the board
   board.forEach((circle, circleIdx) => {
    console.log('this is circle', circle);
    console.log('this is circleIdx', circleIdx);
     circle[i] = shuffledDogArray[i];
   });
+  */
 
 //shuffle the dog tiles
 function shuffleTiles(dogArray) {
@@ -54,6 +56,13 @@ function shuffleTiles(dogArray) {
   }
     return dogArray;
   }
+
+  /*for (tile in tiles) {
+    for (i = 0; i < shuffledDogArray.length; i++) {
+     tile[i] = shuffledDogArray[i];
+    }
+    console.log(tile);
+ }*/
 }
 
 /*---objects---*/
@@ -84,7 +93,8 @@ const jumpingDog = new dog(6, 'white');
 imageArray.push(jumpingDog);
 
 const ballDog = new dog(7, 'black');
-imageArray,push(ballDog);
+imageArray.push(ballDog);
 
 const runningDog = new dog(8, 'orange');
 imageArray.push(runningDog);
+
