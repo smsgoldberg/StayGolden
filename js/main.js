@@ -72,7 +72,7 @@ function initializeGame() {
 }
 
 //shuffle the dog tiles
-function shuffleTiles(dogArray) {
+/*function shuffleTiles(dogArray) {
   let i, j, k;
   //let's at least try a fisher-yates shuffle
   //i should start at 0 since everything is zero-indexed
@@ -84,7 +84,21 @@ function shuffleTiles(dogArray) {
   }
     return dogArray;
   }
+*/
 
+function shuffleTiles(dogArray) {
+  let len = dogArray.length;
+  let i;
+  function shuffle() {
+   for (i = len -1; i >0; i--) {
+     let j = Math.floor(Math.random() * i)
+     let temp = dogArray[i];
+     dogArray[i] = dogArray[j];
+     dogArray[j] = temp;
+   }
+  }
+  return dogArray;
+ }
 //populate the board 
 function populateBoard() {
 
