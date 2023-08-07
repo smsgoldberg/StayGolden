@@ -71,21 +71,6 @@ function initializeGame() {
   //populateBoard(shuffledTiles);
 }
 
-//shuffle the dog tiles
-/*function shuffleTiles(dogArray) {
-  let i, j, k;
-  //let's at least try a fisher-yates shuffle
-  //i should start at 0 since everything is zero-indexed
-  for (i = 0; i < dogArray.length; i++) {
-       j = Math.floor(Math.random() * (i + 1));
-       dogArray[k] = dogArray[i];
-       dogArray[i] = dogArray[j];
-       dogArray[j] = dogArray[k];
-  }
-    return dogArray;
-  }
-*/
-
 function shuffleTiles(dogArray) {
   let len = dogArray.length;
   let i;
@@ -103,40 +88,5 @@ function shuffleTiles(dogArray) {
 function populateBoard() {
 
 }
-
-
-
-// / /*---objects---*/
-
-// class dog {
-//     constructor(number, backgroundColor) {
-//         this.number = number;
-//         this.backgroundColor = backgroundColor;
-//     }
-// }
-
-// const swimmingDog = new dog(1, 'blue');
-// imageArray.push(swimmingDog);
-
-// const smilingDog = new dog(2, 'green');
-// imageArray.push(smilingDog);
-
-// const puppyDog = new dog(3, 'yellow');
-// imageArray.push(puppyDog);
-
-// const olderDog = new dog(4, 'red');
-// imageArray.push(olderDog);
-
-// const sleepingDog = new dog(5, 'purple');
-// imageArray.push(sleepingDog);
-
-// const jumpingDog = new dog(6, 'white'); 
-// imageArray.push(jumpingDog);
-
-// const ballDog = new dog(7, 'black');
-// imageArray.push(ballDog);
-
-// const runningDog = new dog(8, 'orange');
-// imageArray.push(runningDog);
 
 
