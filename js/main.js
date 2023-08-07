@@ -41,6 +41,8 @@ imageArray.push(runningDog);
 const matchArray = Array.from(imageArray);
 const mergedDogArray = imageArray.concat(matchArray);
 console.log(mergedDogArray);
+const shuffledTiles = shuffleTiles(mergedDogArray);
+
 
 /*-----state variables ----*/
 let board;
@@ -63,10 +65,10 @@ initializeGame();
 //this function initializes each new game 
 function initializeGame() {
   //the win condition will be set to null
-  endCondition = null;
- const shuffledTiles = shuffleTiles(mergedDogArray);
+ endCondition = null;
+ shuffleTiles(mergedDogArray);
  console.log(shuffledTiles);
-  populateBoard(shuffledTiles);
+  //populateBoard(shuffledTiles);
 }
 
 //shuffle the dog tiles
@@ -75,7 +77,7 @@ function shuffleTiles(dogArray) {
   //let's at least try a fisher-yates shuffle
   //i should start at 0 since everything is zero-indexed
   for (i = 0; i < dogArray.length; i++) {
-       j = Math.floor(Math.random() * (i +1));
+       j = Math.floor(Math.random() * (i + 1));
        dogArray[k] = dogArray[i];
        dogArray[i] = dogArray[j];
        dogArray[j] = dogArray[k];
@@ -85,17 +87,7 @@ function shuffleTiles(dogArray) {
 
 //populate the board 
 function populateBoard() {
-   //first, let's shuffle the merged array 
- const shuffledDogArray =  shuffleTiles(mergedDogArray);
- console.log(shuffledDogArray);
 
- /* //now let's try distributing the shuffled tiles across the board
-  board.forEach((circle, circleIdx) => {
-   console.log('this is circle', circle);
-   console.log('this is circleIdx', circleIdx);
-    circle[i] = shuffledDogArray[i];
-  });
-  */
 }
 
 
