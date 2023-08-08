@@ -3,36 +3,35 @@ const imageArray = [];
 /*---objects---*/
 
 class dog {
-  constructor(number, backgroundColor) {
+  constructor(number, backgroundColor, backgroundImage) {
       this.number = number;
       this.backgroundColor = backgroundColor;
-      //set default display to none
-      display: none;
+      this.backgroundImage = backgroundImage; 
   }
 }
 
-const swimmingDog = new dog(1, 'blue');
+const swimmingDog = new dog(1, 'blue', 'img/swimmingDog.jpg');
 imageArray.push(swimmingDog);
 
-const smilingDog = new dog(2, 'green');
+const smilingDog = new dog(2, 'green', 'img/smilingDog.jpg');
 imageArray.push(smilingDog);
 
-const puppyDog = new dog(3, 'yellow');
+const puppyDog = new dog(3, 'yellow', 'img/puppyDog.jpg');
 imageArray.push(puppyDog);
 
-const olderDog = new dog(4, 'red');
+const olderDog = new dog(4, 'red', 'img/olderDog.jpg');
 imageArray.push(olderDog);
 
-const sleepingDog = new dog(5, 'purple');
+const sleepingDog = new dog(5, 'purple', 'img/olderDog.jpg');
 imageArray.push(sleepingDog);
 
-const jumpingDog = new dog(6, 'white'); 
-imageArray.push(jumpingDog);
+const beggingDog = new dog(6, 'white', 'img/beggingDog.jpg'); 
+imageArray.push(beggingDog);
 
-const ballDog = new dog(7, 'black');
+const ballDog = new dog(7, 'black', 'img/ballDog.jpg');
 imageArray.push(ballDog);
 
-const runningDog = new dog(8, 'orange');
+const runningDog = new dog(8, 'orange', 'img/runningDog.jpg');
 imageArray.push(runningDog);
 
 
@@ -96,6 +95,7 @@ function populateBoard() {
     //this is just for testing
     //change to style.backgroundImage for actual program 
       tiles[circleIdx].style.backgroundColor = shuffledTiles[circleIdx].backgroundColor; 
+      tiles[circleIdx].style.backgroundImage = shuffledTiles[circleIdx].backgroundImage; 
   });
  }
 
@@ -103,4 +103,5 @@ function populateBoard() {
 function handleMove(event) {
   const tileIdx = tiles.indexOf(event.target);
   console.log('this is tileIdx in handleMove', tileIdx);
+
 }
