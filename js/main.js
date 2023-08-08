@@ -41,11 +41,11 @@ imageArray.push(runningDog);
 const matchArray = Array.from(imageArray);
 const mergedDogArray = imageArray.concat(matchArray);
 console.log(mergedDogArray);
-const shuffledTiles = shuffleTiles(mergedDogArray);
+let shuffledTiles;
 
 
 /*-----state variables ----*/
-let board;
+let board = [];
 let player;
 let endCondition; 
 
@@ -66,27 +66,32 @@ initializeGame();
 function initializeGame() {
   //the win condition will be set to null
  endCondition = null;
- shuffleTiles(mergedDogArray);
+ shuffledTiles = shuffleTiles(mergedDogArray)
  console.log(shuffledTiles);
-  //populateBoard(shuffledTiles);
+  populateBoard();
 }
 
 function shuffleTiles(dogArray) {
   let len = dogArray.length;
   let i;
-  function shuffle() {
    for (i = len -1; i >0; i--) {
      let j = Math.floor(Math.random() * i)
      let temp = dogArray[i];
      dogArray[i] = dogArray[j];
      dogArray[j] = temp;
    }
-  }
   return dogArray;
  }
+
 //populate the board 
 function populateBoard() {
+ //we should probably use forEach to populate the board elements 
+  tiles.forEach((circle, circleIdx) => {
+    console.log('this is circle', circle);
+    console.log('this is circleIdx', circleIdx);
+      tiles[circleIdx].style.backgroundColor = shuffledTiles[circleIdx].backgroundColor; 
+  });
+ }
 
-}
 
 
