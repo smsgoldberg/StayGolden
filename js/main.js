@@ -103,8 +103,15 @@ function populateBoard() {
   });
  }
 
+ function handleMove(event) {
+  const tileIdx = tiles.indexOf(event.target);
+  console.log('this is tileIdx in handleMove', tileIdx);
+  
+}
+
+
  //timer function that expires after 60 seconds 
- function renderClock(cbFunc) {
+ function renderClock(cbFunc) {Placeholder Text
   let count = 60;
   message.style.visibility = 'visible';
   message.innerText = count; 
@@ -120,10 +127,3 @@ function populateBoard() {
   }, 60000)
 
  }
-
-
-function handleMove(event) {
-  const tileIdx = tiles.indexOf(event.target);
-  console.log('this is tileIdx in handleMove', tileIdx);
-
-}

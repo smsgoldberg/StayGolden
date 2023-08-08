@@ -23,6 +23,9 @@
     border: 3px solid #A63429;
     border-radius: 10px;
     background-color: #F2A518;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    padding: 25px 100px;
 }
 
 header {
