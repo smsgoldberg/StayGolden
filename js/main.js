@@ -103,7 +103,7 @@ function populateBoard() {
     console.log('this is circleIdx', circleIdx);
     //this is just for testing
     //change to style.backgroundImage for actual program 
-      tiles[circleIdx].style.backgroundColor = shuffledTiles[circleIdx].backgroundColor; 
+      tiles[circleIdx].style.backgroundImage = shuffledTiles[circleIdx].backgroundImage; 
       tiles[circleIdx].querySelector('img').setAttribute('src', shuffledTiles[circleIdx].backgroundImage); 
   });
  }
