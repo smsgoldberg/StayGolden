@@ -110,8 +110,18 @@ function populateBoard() {
   console.log('this is tileIdx in handleMove', tileIdx);
   console.log(tiles[tileIdx]);
   tiles[tileIdx].children[0].style.visibility = "visible";
-  firstClickChoice = tiles[tileIdx].children[0];
-  console.log('this is firstClickChoice', firstClickChoice);
+  if (!firstClickChoice) {
+    firstClickChoice = tiles[tileIdx].children[0]
+    console.log('this is firstClickChoice', firstClickChoice) 
+  } else {
+    secondClickChoice = tiles[tileIdx].children[0];
+    console.log('this is secondClickChoice', secondClickChoice);
+  }
+  if (firstClickChoice.src === secondClickChoice.src) {
+    console.log('Match');
+  } else {
+    console.log('Not a match');
+  }
 }
 
 
