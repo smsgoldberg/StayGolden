@@ -14,7 +14,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    border: 5px solid #A63429;
+    /*border: 5px solid #A63429;*/
     background-color: #F2A518;
 }
 
@@ -32,7 +32,6 @@ header {
     display: flex;
     align-items: center;
     flex-direction: column;
-    border: 1px solid black;
     font-family: 'Grand Hotel', cursive;
     font-size: 72px;
     color: #A63429;
@@ -40,7 +39,7 @@ header {
 }
 
 section {
-    border: 1px solid black;
+    border: 5px solid #A63429;
     display: grid;
     grid-template-columns: repeat(4, 15vmin);
     grid-template-rows: repeat(4, 15vmin)
@@ -48,7 +47,7 @@ section {
 
 .circles {
     display: grid;
-    border: 1px solid black;
+    border: 1px solid #A63429;
     padding: 30px;
     grid-template-columns: repeat(4, 15vmin);
     grid-template-rows: repeat(4, 15vmin)

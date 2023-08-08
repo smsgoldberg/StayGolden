@@ -49,9 +49,11 @@ let shuffledTiles;
 let board = [];
 let player;
 let endCondition; 
+let firstClickChoice;
+let secondClickChoice;
 
 /*---cached elements---*/
- let message = document.querySelector('h2');
+ let messageEl = document.querySelector('h2');
  let playAgainButton = document.querySelector('button');
  let tiles = [...document.querySelectorAll('.circles')];
 
@@ -106,24 +108,24 @@ function populateBoard() {
  function handleMove(event) {
   const tileIdx = tiles.indexOf(event.target);
   console.log('this is tileIdx in handleMove', tileIdx);
-  
 }
 
 
+
  //timer function that expires after 60 seconds 
- function renderClock(cbFunc) {Placeholder Text
+ function renderClock(cbFunc) {
   let count = 60;
-  message.style.visibility = 'visible';
-  message.innerText = count; 
+  messageEl.style.visibility = 'visible';
+  messageEl.innerText = count; 
   const timerID = setInterval(() => {
    count--
    if (count) {
-    message.innerText = count;
+    messageEl.innerText = count;
    } else {
     clearInterval(timerId)
-    message.style.visibility = 'hidden';
+    messageEl.style.visibility = 'hidden';
     cbFunc();
    }
-  }, 60000)
+  }, 600)
 
  }
