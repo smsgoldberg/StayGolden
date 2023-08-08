@@ -108,6 +108,8 @@ function populateBoard() {
  function handleMove(event) {
   const tileIdx = tiles.indexOf(event.target);
   console.log('this is tileIdx in handleMove', tileIdx);
+  //the below code does not work in terms of rendering individual images visible
+ tiles[tileIdx].backgroundImage = 'visible';
 }
 
 
@@ -122,7 +124,7 @@ function populateBoard() {
    if (count) {
     messageEl.innerText = count;
    } else {
-    clearInterval(timerId)
+    clearInterval(timerID)
     messageEl.style.visibility = 'hidden';
     cbFunc();
    }
