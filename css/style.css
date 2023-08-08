@@ -48,7 +48,7 @@ section {
 .circles {
     display: grid;
     border: 1px solid #A63429;
-    padding: 30px;
+    padding: 10%;
     grid-template-columns: repeat(4, 15vmin);
     grid-template-rows: repeat(4, 15vmin)
 }
@@ -76,7 +76,7 @@ button {
  img {
     border-radius: 50%;
     border: 1px solid #A63429;
-    height: 100%;
-    width: 50%;
+    height: 80%;
+    width: 80%;
     visibility: hidden;
 }

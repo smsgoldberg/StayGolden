@@ -108,10 +108,10 @@ function populateBoard() {
  function handleMove(event) {
   const tileIdx = tiles.indexOf(event.target);
   console.log('this is tileIdx in handleMove', tileIdx);
-  //the below code does not work in terms of rendering individual images visible
   console.log(tiles[tileIdx]);
- // tiles[tileIdx].children.style.visibility = "visible";
-  tiles[tileIdx].children[0].style.visibility = "visible"
+  tiles[tileIdx].children[0].style.visibility = "visible";
+  firstClickChoice = tiles[tileIdx].children[0];
+  console.log('this is firstClickChoice', firstClickChoice);
 }
 
 
