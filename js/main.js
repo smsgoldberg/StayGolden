@@ -22,7 +22,7 @@ imageArray.push(puppyDog);
 const olderDog = new dog(4, 'red', 'img/olderDog.jpg');
 imageArray.push(olderDog);
 
-const sleepingDog = new dog(5, 'purple', 'img/olderDog.jpg');
+const sleepingDog = new dog(5, 'purple', 'img/sleepingDog.jpg');
 imageArray.push(sleepingDog);
 
 const beggingDog = new dog(6, 'white', 'img/beggingDog.jpg'); 
@@ -109,7 +109,9 @@ function populateBoard() {
   const tileIdx = tiles.indexOf(event.target);
   console.log('this is tileIdx in handleMove', tileIdx);
   //the below code does not work in terms of rendering individual images visible
- tiles[tileIdx].backgroundImage = 'visible';
+  console.log(tiles[tileIdx]);
+ // tiles[tileIdx].children.style.visibility = "visible";
+  tiles[tileIdx].children[0].style.visibility = "visible"
 }
 
 

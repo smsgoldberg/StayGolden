@@ -73,10 +73,10 @@ button {
     font-size: 24px;
 }
 
-img {
+ img {
     border-radius: 50%;
-    border: 1px solid #A63429
+    border: 1px solid #A63429;
     height: 100%;
     width: 50%;
-    /*visibility: hidden*/;
+    visibility: hidden;
 }
