@@ -51,7 +51,7 @@ let player;
 let endCondition; 
 
 /*---cached elements---*/
- let scoreboard = document.querySelector('h2');
+ let message = document.querySelector('h2');
  let playAgainButton = document.querySelector('button');
  let tiles = [...document.querySelectorAll('.circles')];
 
@@ -69,9 +69,13 @@ initializeGame();
 function initializeGame() {
   //the win condition will be set to null
  endCondition = null;
+ //shuffle the tiles
  shuffledTiles = shuffleTiles(mergedDogArray)
  console.log(shuffledTiles);
+ //populate the game board
   populateBoard();
+  //start the clock
+  renderClock();
 }
 
 function shuffleTiles(dogArray) {
@@ -97,6 +101,24 @@ function populateBoard() {
       tiles[circleIdx].style.backgroundColor = shuffledTiles[circleIdx].backgroundColor; 
       tiles[circleIdx].querySelector('img').setAttribute('src', shuffledTiles[circleIdx].backgroundImage); 
   });
+ }
+
+ //timer function that expires after 60 seconds 
+ function renderClock(cbFunc) {
+  let count = 60;
+  message.style.visibility = 'visible';
+  message.innerText = count; 
+  const timerID = setInterval(() => {
+   count--
+   if (count) {
+    message.innerText = count;
+   } else {
+    clearInterval(timerId)
+    message.style.visibility = 'hidden';
+    cbFunc();
+   }
+  }, 60000)
+
  }
 
 
