@@ -51,11 +51,14 @@ let player;
 let endCondition; 
 let firstClickChoice;
 let secondClickChoice;
+let match;
 
 /*---cached elements---*/
  let messageEl = document.querySelector('h2');
  let playAgainButton = document.querySelector('button');
  let tiles = [...document.querySelectorAll('.circles')];
+//let tileIdx = tiles.indexOf(event.target);
+
 
 /* --- event listeners ---  */
 //enables player to reset the board for a new game
@@ -70,6 +73,7 @@ initializeGame();
 //this function initializes each new game 
 function initializeGame() {
   //the win condition will be set to null
+ match = null;
  endCondition = null;
  //shuffle the tiles
  shuffledTiles = shuffleTiles(mergedDogArray)
@@ -92,7 +96,6 @@ function shuffleTiles(dogArray) {
   return dogArray;
  }
 
-//populate the board 
 function populateBoard() {
  //we should probably use forEach to populate the board elements 
   tiles.forEach((circle, circleIdx) => {
@@ -104,6 +107,17 @@ function populateBoard() {
       tiles[circleIdx].querySelector('img').setAttribute('src', shuffledTiles[circleIdx].backgroundImage); 
   });
  }
+
+ function compareChoices(firstChoice, secondChoice) {
+  if (firstChoice.src === secondChoice.src) {
+    console.log('Match');
+    match = true;
+  } else {
+    console.log('Not a match');
+    match = false;
+  }
+   return match;
+}
 
  function handleMove(event) {
   const tileIdx = tiles.indexOf(event.target);
@@ -117,11 +131,7 @@ function populateBoard() {
     secondClickChoice = tiles[tileIdx].children[0];
     console.log('this is secondClickChoice', secondClickChoice);
   }
-  if (firstClickChoice.src === secondClickChoice.src) {
-    console.log('Match');
-  } else {
-    console.log('Not a match');
-  }
+  compareChoices(firstClickChoice, secondClickChoice);
 }
 
 
