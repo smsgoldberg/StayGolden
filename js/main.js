@@ -6,6 +6,8 @@ class dog {
   constructor(number, backgroundColor) {
       this.number = number;
       this.backgroundColor = backgroundColor;
+      //set default display to none
+      display: none;
   }
 }
 
@@ -57,6 +59,8 @@ let endCondition;
 /* --- event listeners ---  */
 //enables player to reset the board for a new game
 playAgainButton.addEventListener('click', initializeGame);
+//allows the player to click on a tile to make a move
+document.getElementById('board').addEventListener('click', handleMove);
 
 /*----functions----*/
 
@@ -89,9 +93,14 @@ function populateBoard() {
   tiles.forEach((circle, circleIdx) => {
     console.log('this is circle', circle);
     console.log('this is circleIdx', circleIdx);
+    //this is just for testing
+    //change to style.backgroundImage for actual program 
       tiles[circleIdx].style.backgroundColor = shuffledTiles[circleIdx].backgroundColor; 
   });
  }
 
 
-
+function handleMove(event) {
+  const tileIdx = tiles.indexOf(event.target);
+  console.log('this is tileIdx in handleMove', tileIdx);
+}
