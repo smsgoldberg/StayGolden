@@ -80,3 +80,22 @@ button {
     width: 80%;
     visibility: hidden;
 }
+
+.game-token {
+    border-radius: 50%;
+    border: 1px solid #A63429;
+    background-color: #A63429; 
+    height: 80%;
+    width: 80%;
+    visibility: visible;
+}
+
+
+.game-token:hover {
+    background-color:#A63429 50%;
+    opacity: 0.5;
+}
+
+.game-token:active {
+    visibility: hidden;
+}
