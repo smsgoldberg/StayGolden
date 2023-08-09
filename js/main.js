@@ -131,12 +131,17 @@ function populateBoard() {
 
 function evaluatePairs(firstChoiceIdx, secondChoiceIdx, match) {
   console.log('this is evaluate pairs', evaluatePairs);
+  console.log('this is firstChoiceIdx', firstChoiceIdx);
+  console.log('this is secondChoiceIdx', secondChoiceIdx);
+  console.log('this is match', match);
   if (match === true) {
     matchedPairsArray.push(firstChoiceIdx);
     matchedPairsArray.push(secondChoiceIdx);
   } else {
     showToken(firstChoiceIdx);
     showToken(secondChoiceIdx);
+    hideDog(firstChoiceIdx);
+    hideDog(secondChoiceIdx);
   }
   console.log('this is matched pairs array', matchedPairsArray)
 }
@@ -157,23 +162,25 @@ function hideToken(tileIdx) {
 
  function handleMove(event) {
   const tileIdx = tiles.indexOf(event.target);
-  tiles[tileIdx].children[0].children[0].style.visibility = "visible";
+  //tiles[tileIdx].children[0].children[0].style.visibility = "visible";
   console.log(tiles[tileIdx].children);
   //if no first click has been made, the first move will be recorded here
   if (!firstClickChoice) {
     firstClickChoice = tiles[tileIdx].children[0].children[0];
+    firstClickChoiceIdx = tileIdx;
    hideToken(tileIdx);
    showDog(firstClickChoice);
   } 
    //otherwise, the second click will be assigned
    else {
     secondClickChoice = tiles[tileIdx].children[0].children[0];
+    secondClickChoiceIdx = tileIdx;
     hideToken(tileIdx);
     showDog(secondClickChoice);
     tiles[tileIdx].children[0].children[0].style.visibility = "visible";
     //compare the player's choices and evaluate the outcome
     let result = compareChoices(firstClickChoice, secondClickChoice);
-    evaluatePairs(firstClickChoice(tiles.indexOf), secondClickChoice, result);
+    evaluatePairs(firstClickChoiceIdx, secondClickChoiceIdx, result);
     firstClickChoice = null, secondClickChoice = null;
   }
 }
@@ -182,8 +189,8 @@ function showDog(clickChoice) {
   clickChoice.style.visibility="visible";
 }
 
-function hideDog(clickChoice) {
-  clickChoice.style.visibility="hidden";
+function hideDog(tileIdx) {
+  tiles[tileIdx].children[0].children[0].style.visibility="hidden";
 }
 
  //timer function that expires after 60 seconds 
