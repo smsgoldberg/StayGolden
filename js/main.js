@@ -85,7 +85,11 @@ function initializeGame() {
  //populate the game board
   populateBoard();
   //start the clock
-  renderClock();
+  renderClock(() => {
+    checkWin();
+    gameResults();
+  }
+  );
 }
 
 function shuffleTiles(dogArray) {
@@ -129,8 +133,8 @@ function evaluatePairs(firstChoice, secondChoice, match) {
     matchedPairsArray.push(firstChoice);
     matchedPairsArray.push(secondChoice);
   } else {
-    showToken(firstChoice[titleIdx]);
-    showToken(secondChoice[titleIdx]);
+    showToken(firstChoice);
+    showToken(secondChoice);
   }
   console.log('this is matched pairs array', matchedPairsArray)
 }
@@ -138,8 +142,9 @@ function evaluatePairs(firstChoice, secondChoice, match) {
 
 //display token
 function showToken(tileIdx) {
-  tiles[tileIdx].children[0].style.visibility="visible";
+  tiles[tileIdx].style.visibility="visible";
   console.log(tiles[tileIdx].children[0]);
+  console.log(tiles[tileIdx])
 }
 
 
@@ -152,6 +157,7 @@ function hideToken(tileIdx) {
  function handleMove(event) {
   const tileIdx = tiles.indexOf(event.target);
   tiles[tileIdx].children[0].children[0].style.visibility = "visible";
+  console.log(tiles[tileIdx].children);
   if (!firstClickChoice) {
     firstClickChoice = tiles[tileIdx].children[0].children[0];
    hideToken(tileIdx);
@@ -189,5 +195,13 @@ function hideDog(clickChoice) {
     cbFunc();
    }
   }, 600)
+
+ }
+
+ function checkWin() {
+  
+ }
+
+ function gameResults() {
 
  }
