@@ -123,14 +123,23 @@ function populateBoard() {
    return match;
 }
 
-function evaluatePairs(match) {
+function evaluatePairs(firstChoice, secondChoice, match) {
   console.log('this is evaluate pairs', evaluatePairs);
+  if (match === true) {
+    matchedPairsArray.push(firstChoice);
+    matchedPairsArray.push(secondChoice);
+  } else {
+    showToken(firstChoice[titleIdx]);
+    showToken(secondChoice[titleIdx]);
+  }
+  console.log('this is matched pairs array', matchedPairsArray)
 }
 
 
 //display token
 function showToken(tileIdx) {
   tiles[tileIdx].children[0].style.visibility="visible";
+  console.log(tiles[tileIdx].children[0]);
 }
 
 
@@ -153,8 +162,8 @@ function hideToken(tileIdx) {
     showDog(secondClickChoice);
     tiles[tileIdx].children[0].children[0].style.visibility = "visible";
   }
-  compareChoices(firstClickChoice, secondClickChoice);
-  evaluatePairs(compareChoices);
+  let result = compareChoices(firstClickChoice, secondClickChoice);
+  evaluatePairs(firstClickChoice, secondClickChoice, result);
 }
 
 function showDog(clickChoice) {
