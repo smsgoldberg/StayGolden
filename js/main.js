@@ -48,7 +48,7 @@ let shuffledTiles;
 /*-----state variables ----*/
 let board = [];
 let player;
-let endCondition; 
+let win;
 let firstClickChoice;
 let secondClickChoice;
 let firstClickChoiceIdx;
@@ -162,8 +162,8 @@ function hideToken(tileIdx) {
 
  function handleMove(event) {
   const tileIdx = tiles.indexOf(event.target);
-  //tiles[tileIdx].children[0].children[0].style.visibility = "visible";
-  console.log(tiles[tileIdx].children);
+ // tiles[tileIdx].children[0].children[0].style.visibility = "visible";
+ // console.log(tiles[tileIdx].children);
   //if no first click has been made, the first move will be recorded here
   if (!firstClickChoice) {
     firstClickChoice = tiles[tileIdx].children[0].children[0];
@@ -212,7 +212,11 @@ function hideDog(tileIdx) {
  }
 
  function checkWin() {
-
+    if (matchedPairsArray.length = 16) {
+      win = 'Y'
+    } else {
+      win = 'N'
+    }
  }
 
  function gameResults() {
