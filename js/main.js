@@ -136,16 +136,11 @@ console.log(hideToken);
 
  function handleMove(event) {
   const tileIdx = tiles.indexOf(event.target);
- // console.log('this is tileIdx in handleMove', tileIdx);
-  //console.log(tiles[tileIdx].children[0].children[0]);
- // console.log(tiles);
   tiles[tileIdx].children[0].children[0].style.visibility = "visible";
   if (!firstClickChoice) {
     firstClickChoice = tiles[tileIdx].children[0].children[0];
     console.log('this is firstClickChoice', firstClickChoice);
     hideToken(tileIdx);
-   // console.log(tiles[tileIdx])//showDog(tileIdx);
-    tiles[tileIdx].children[1].style.visibility = "visible";
   } else {
     secondClickChoice = tiles[tileIdx].children[0].children[0];
     hideToken(tileIdx);
@@ -159,12 +154,12 @@ console.log(hideToken);
 
 //should these take a click choice as parameters, or should they accept no parameters at all? 
 /*function showDog(tileIdx) {
-  tiles[tileIdx].children[1].style.visibility="visible";
+  tiles[tileIdx].children[0].children[0].style.visibility="visible";
 }
 console.log('this is showDog', showDog());
 //supposed to hide the dog photo in favor of the token
 function hideDog() {
-  tiles[tileIdx].children[1].style.visibility="hidden";
+  tiles[tileIdx].children[0].children[0].style.visibility="hidden";
 }
 console.log('this is showDog', hideDog());
 */
