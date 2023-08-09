@@ -52,6 +52,8 @@ let endCondition;
 let firstClickChoice;
 let secondClickChoice;
 let match;
+//holds our matched pairs when we find a match
+let matchedPairsArray = [];
 
 /*---cached elements---*/
  let messageEl = document.querySelector('h2');
@@ -103,14 +105,13 @@ function populateBoard() {
   tiles.forEach((circle, circleIdx) => {
     console.log('this is circle', circle);
     console.log('this is circleIdx', circleIdx);
-    //the default image should be a solid token color
-   //  tiles[circleIdx].style.backgroundImage = "img/tokencolor.png" //shuffledTiles[circleIdx].backgroundImage; 
-       tiles[circleIdx].style.backgroundImage = shuffledTiles[circleIdx].backgroundImage; 
+     tiles[circleIdx].style.backgroundImage = shuffledTiles[circleIdx].backgroundImage; 
      tiles[circleIdx].querySelector('img').setAttribute('src', shuffledTiles[circleIdx].backgroundImage); 
-     console.log( tiles[circleIdx].querySelector('img').setAttribute('src', shuffledTiles[circleIdx].backgroundImage));
+   //  console.log( tiles[circleIdx].querySelector('img').setAttribute('src', shuffledTiles[circleIdx].backgroundImage));
   });
  }
 
+ //compare the user's choices
  function compareChoices(firstChoice, secondChoice) {
   if (firstChoice.src === secondChoice.src) {
     console.log('Match');
@@ -122,47 +123,47 @@ function populateBoard() {
    return match;
 }
 
-//displays token over dog image -- but does it work yet? 
+function evaluatePairs(match) {
+  console.log('this is evaluate pairs', evaluatePairs);
+}
+
+
+//display token
 function showToken(tileIdx) {
   tiles[tileIdx].children[0].style.visibility="visible";
 }
-console.log(showToken);
 
-//supposed to hide token over dog image-- but it doesn't work yet 
+
+//hide token
 function hideToken(tileIdx) {
   tiles[tileIdx].children[0].style.visibility="hidden";
 }
-console.log(hideToken);
+
 
  function handleMove(event) {
   const tileIdx = tiles.indexOf(event.target);
   tiles[tileIdx].children[0].children[0].style.visibility = "visible";
   if (!firstClickChoice) {
     firstClickChoice = tiles[tileIdx].children[0].children[0];
-    console.log('this is firstClickChoice', firstClickChoice);
-    hideToken(tileIdx);
+   hideToken(tileIdx);
+   showDog(firstClickChoice);
   } else {
     secondClickChoice = tiles[tileIdx].children[0].children[0];
     hideToken(tileIdx);
+    showDog(secondClickChoice);
     tiles[tileIdx].children[0].children[0].style.visibility = "visible";
-    console.log('this is secondClickChoice', secondClickChoice);
   }
-  console.log(firstClickChoice);
-  console.log(secondClickChoice);
   compareChoices(firstClickChoice, secondClickChoice);
+  evaluatePairs(compareChoices);
 }
 
-//should these take a click choice as parameters, or should they accept no parameters at all? 
-/*function showDog(tileIdx) {
-  tiles[tileIdx].children[0].children[0].style.visibility="visible";
+function showDog(clickChoice) {
+  clickChoice.style.visibility="visible";
 }
-console.log('this is showDog', showDog());
-//supposed to hide the dog photo in favor of the token
-function hideDog() {
-  tiles[tileIdx].children[0].children[0].style.visibility="hidden";
+
+function hideDog(clickChoice) {
+  clickChoice.style.visibility="hidden";
 }
-console.log('this is showDog', hideDog());
-*/
 
  //timer function that expires after 60 seconds 
  function renderClock(cbFunc) {
