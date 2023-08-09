@@ -49,6 +49,8 @@ let shuffledTiles;
 let board = [];
 let player;
 let win = null;
+let count = 60;
+let gameOver = false;
 let firstClickChoice;
 let secondClickChoice;
 let firstClickChoiceIdx;
@@ -88,8 +90,8 @@ function initializeGame() {
   populateBoard();
   //start the clock
   renderClock(() => {
-    checkWin();
-    gameResults();
+    //checkWin();
+    //gameResults();
   }
   );
 }
@@ -181,6 +183,7 @@ function hideToken(tileIdx) {
     //compare the player's choices and evaluate the outcome
     let result = compareChoices(firstClickChoice, secondClickChoice);
     evaluatePairs(firstClickChoiceIdx, secondClickChoiceIdx, result);
+    checkWinner();
     firstClickChoice = null, secondClickChoice = null;
   }
 }
@@ -211,14 +214,16 @@ function hideDog(tileIdx) {
 
  }
 
- function checkWin() {
+ /*function checkWin() {
     if (matchedPairsArray.length = 16) {
-      win = 'Y'
+      win = 'Y';
+      gameOver = true;
+      messageEl.innerText = "You win!";
     } else {
       win = 'N'
     }
  }
 
  function gameResults() {
-
- }
+    if (win = 'Y')
+ }*/
