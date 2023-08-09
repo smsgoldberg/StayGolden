@@ -48,7 +48,7 @@ let shuffledTiles;
 /*-----state variables ----*/
 let board = [];
 let player;
-let win;
+let win = null;
 let firstClickChoice;
 let secondClickChoice;
 let firstClickChoiceIdx;
