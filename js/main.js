@@ -51,6 +51,8 @@ let player;
 let endCondition; 
 let firstClickChoice;
 let secondClickChoice;
+let firstClickChoiceIdx;
+let secondClickChoiceIdx;
 let match;
 //holds our matched pairs when we find a match
 let matchedPairsArray = [];
@@ -127,14 +129,14 @@ function populateBoard() {
    return match;
 }
 
-function evaluatePairs(firstChoice, secondChoice, match) {
+function evaluatePairs(firstChoiceIdx, secondChoiceIdx, match) {
   console.log('this is evaluate pairs', evaluatePairs);
   if (match === true) {
-    matchedPairsArray.push(firstChoice);
-    matchedPairsArray.push(secondChoice);
+    matchedPairsArray.push(firstChoiceIdx);
+    matchedPairsArray.push(secondChoiceIdx);
   } else {
-    showToken(firstChoice);
-    showToken(secondChoice);
+    showToken(firstChoiceIdx);
+    showToken(secondChoiceIdx);
   }
   console.log('this is matched pairs array', matchedPairsArray)
 }
@@ -142,9 +144,8 @@ function evaluatePairs(firstChoice, secondChoice, match) {
 
 //display token
 function showToken(tileIdx) {
-  tiles[tileIdx].style.visibility="visible";
-  console.log(tiles[tileIdx].children[0]);
-  console.log(tiles[tileIdx])
+  tiles[tileIdx].children[0].style.visibility="visible";
+  console.log('this is showToken');
 }
 
 
@@ -158,18 +159,23 @@ function hideToken(tileIdx) {
   const tileIdx = tiles.indexOf(event.target);
   tiles[tileIdx].children[0].children[0].style.visibility = "visible";
   console.log(tiles[tileIdx].children);
+  //if no first click has been made, the first move will be recorded here
   if (!firstClickChoice) {
     firstClickChoice = tiles[tileIdx].children[0].children[0];
    hideToken(tileIdx);
    showDog(firstClickChoice);
-  } else {
+  } 
+   //otherwise, the second click will be assigned
+   else {
     secondClickChoice = tiles[tileIdx].children[0].children[0];
     hideToken(tileIdx);
     showDog(secondClickChoice);
     tiles[tileIdx].children[0].children[0].style.visibility = "visible";
+    //compare the player's choices and evaluate the outcome
+    let result = compareChoices(firstClickChoice, secondClickChoice);
+    evaluatePairs(firstClickChoice(tiles.indexOf), secondClickChoice, result);
+    firstClickChoice = null, secondClickChoice = null;
   }
-  let result = compareChoices(firstClickChoice, secondClickChoice);
-  evaluatePairs(firstClickChoice, secondClickChoice, result);
 }
 
 function showDog(clickChoice) {
@@ -199,7 +205,7 @@ function hideDog(clickChoice) {
  }
 
  function checkWin() {
-  
+
  }
 
  function gameResults() {
