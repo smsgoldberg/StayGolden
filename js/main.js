@@ -38,7 +38,6 @@ imageArray.push(runningDog);
 
 /*-----constants -----*/
 //we will keep all our images in an image array - and randomize their positioning everytime the game is initialized
-//const imageArray = [];
 const matchArray = Array.from(imageArray);
 const mergedDogArray = imageArray.concat(matchArray);
 console.log(mergedDogArray);
@@ -56,6 +55,7 @@ let secondClickChoice;
 let firstClickChoiceIdx;
 let secondClickChoiceIdx;
 let match;
+let timerId;
 //holds our matched pairs when we find a match
 let matchedPairsArray = [];
 
@@ -66,7 +66,7 @@ let matchedPairsArray = [];
 //take out variable below and see what happens to code
  let covers = [...document.querySelectorAll('.game-token')];
  console.log(covers);
-//let tileIdx = tiles.indexOf(event.target);
+
 
 
 /* --- event listeners ---  */
@@ -85,15 +85,14 @@ initializeGame();
 
 //this function initializes each new game 
 function initializeGame() {
- //gameOver = false;
  win = null;
  match = null;
- //shuffle the tiles
  shuffledTiles = shuffleTiles(mergedDogArray)
  console.log(shuffledTiles);
  //populate the game board
   populateBoard();
   //start the clock
+  clearInterval(timerId);
   renderClock(() => {
     checkWinner();
   }
@@ -119,10 +118,8 @@ function populateBoard() {
     console.log('this is circleIdx', circleIdx);
      tiles[circleIdx].style.backgroundImage = shuffledTiles[circleIdx].backgroundImage; 
      tiles[circleIdx].querySelector('img').setAttribute('src', shuffledTiles[circleIdx].backgroundImage);
-    //  tiles[circleIdx].children[0].children[0].style.visibility = 'hidden';
     hideDog(circleIdx);
     showToken(circleIdx);
-   //  console.log( tiles[circleIdx].querySelector('img').setAttribute('src', shuffledTiles[circleIdx].backgroundImage));
   });
     playAgainButton.visibility = 'hidden';
  }
@@ -178,8 +175,7 @@ function hideToken(tileIdx) {
   if (tileIdx === -1) {
     tileIdx = tiles.indexOf(event.target.parentElement);
   }
- // tiles[tileIdx].children[0].children[0].style.visibility = "visible";
- // console.log(tiles[tileIdx].children);
+
   //if no first click has been made, the first move will be recorded here
   if (!firstClickChoice) {
     firstClickChoice = tiles[tileIdx].children[0].children[0];
@@ -215,13 +211,12 @@ function hideDog(tileIdx) {
   count = 60;
   messageEl.style.visibility = 'visible';
   messageEl.innerText = count; 
-  const timerID = setInterval(() => {
+  timerId = setInterval(() => {
    count--
-   if (count  && gameOver===false) {
+   if (count && gameOver===false) {
     messageEl.innerText = count;
    } else {
-    clearInterval(timerID)
-    // messageEl.style.visibility = 'hidden';
+    clearInterval(timerId);
     cbFunc();
    }
   }, 600)
