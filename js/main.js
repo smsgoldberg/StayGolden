@@ -90,7 +90,7 @@ function initializeGame() {
   populateBoard();
   //start the clock
   renderClock(() => {
-    checkWin();
+    checkWinner();
   }
   );
 }
@@ -135,7 +135,7 @@ function evaluatePairs(firstChoiceIdx, secondChoiceIdx, match) {
   console.log('this is firstChoiceIdx', firstChoiceIdx);
   console.log('this is secondChoiceIdx', secondChoiceIdx);
   console.log('this is match', match);
-  if (match === true) {
+  if (match === true && matchedPairsArray.length <=16) {
     matchedPairsArray.push(firstChoiceIdx);
     matchedPairsArray.push(secondChoiceIdx);
   } else {
@@ -162,7 +162,13 @@ function hideToken(tileIdx) {
 
 
  function handleMove(event) {
-  const tileIdx = tiles.indexOf(event.target);
+  if (event.target.type === 'img') {
+    return;
+  }
+  let tileIdx = tiles.indexOf(event.target);
+  if (tileIdx === -1) {
+    tileIdx = tiles.indexOf(event.target.parentElement);
+  }
  // tiles[tileIdx].children[0].children[0].style.visibility = "visible";
  // console.log(tiles[tileIdx].children);
   //if no first click has been made, the first move will be recorded here
@@ -218,10 +224,12 @@ function hideDog(tileIdx) {
     win = 'Y';
     gameOver = true;
     displayResults();
+    renderButton();
 } else if (matchedPairsArray.length < 16 && count === 0) {
     win = 'N';
     gameOver = true;
     displayResults();
+    renderButton();
 } else {
     return;
 }
@@ -234,3 +242,9 @@ function displayResults() {
     }
   }
  }
+
+ function renderButton() {
+  playAgainButton.style.visibility = (win !== null) ? 'visible' : 'hidden';
+ }
+
+ 
