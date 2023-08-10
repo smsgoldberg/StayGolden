@@ -63,6 +63,7 @@ let matchedPairsArray = [];
  let messageEl = document.querySelector('h2');
  let playAgainButton = document.querySelector('button');
  let tiles = [...document.querySelectorAll('.circles')];
+ //take out variable below and see what happens to code
  let covers = [...document.querySelectorAll('.game-token')];
  console.log(covers);
 //let tileIdx = tiles.indexOf(event.target);
