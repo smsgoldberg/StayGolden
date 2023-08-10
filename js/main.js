@@ -70,7 +70,10 @@ let matchedPairsArray = [];
 
 /* --- event listeners ---  */
 //enables player to reset the board for a new game
-playAgainButton.addEventListener('click', initializeGame);
+playAgainButton.addEventListener('click', () => {
+  initializeGame(); 
+  renderClock(); 
+});
 //allows the player to click on a tile to make a move
 document.getElementById('board').addEventListener('click', handleMove);
 
@@ -119,6 +122,7 @@ function populateBoard() {
     showToken(circleIdx);
    //  console.log( tiles[circleIdx].querySelector('img').setAttribute('src', shuffledTiles[circleIdx].backgroundImage));
   });
+    playAgainButton.visibility = 'hidden';
  }
 
  //compare the user's choices
