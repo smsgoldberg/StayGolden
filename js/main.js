@@ -84,6 +84,7 @@ initializeGame();
 
 //this function initializes each new game 
 function initializeGame() {
+ matchedPairsArray = [];
  gameOver = false;
  win = null;
  match = null;

@@ -14,7 +14,6 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    /*border: 5px solid #A63429;*/
     background-color: #F2A518;
 }
 
@@ -67,7 +66,7 @@ button {
     color: #F2A518;
     border-radius: 10px;
     font-family: 'Truculenta', sans-serif;
-    margin-top: 50px;
+    margin-top: 30px;
     margin-bottom: 50px;
     padding: 20px;
     font-size: 24px;
@@ -108,4 +107,5 @@ img:active {
 h2 {
     color: #F2A518;
     background-color: #A63429; 
+    font-size: 36px; 
 }
