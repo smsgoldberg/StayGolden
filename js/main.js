@@ -113,7 +113,10 @@ function populateBoard() {
     console.log('this is circle', circle);
     console.log('this is circleIdx', circleIdx);
      tiles[circleIdx].style.backgroundImage = shuffledTiles[circleIdx].backgroundImage; 
-     tiles[circleIdx].querySelector('img').setAttribute('src', shuffledTiles[circleIdx].backgroundImage); 
+     tiles[circleIdx].querySelector('img').setAttribute('src', shuffledTiles[circleIdx].backgroundImage);
+    //  tiles[circleIdx].children[0].children[0].style.visibility = 'hidden';
+    hideDog(circleIdx);
+    showToken(circleIdx);
    //  console.log( tiles[circleIdx].querySelector('img').setAttribute('src', shuffledTiles[circleIdx].backgroundImage));
   });
  }
@@ -162,7 +165,7 @@ function hideToken(tileIdx) {
 
 
  function handleMove(event) {
-  if (event.target.type === 'img') {
+  if (event.target.tagName === 'IMG') {
     return;
   }
   let tileIdx = tiles.indexOf(event.target);
@@ -203,16 +206,16 @@ function hideDog(tileIdx) {
 
  //timer function that expires after 60 seconds 
  function renderClock(cbFunc) {
-  let count = 60;
+  count = 60;
   messageEl.style.visibility = 'visible';
   messageEl.innerText = count; 
   const timerID = setInterval(() => {
    count--
-   if (count) {
+   if (count  && gameOver===false) {
     messageEl.innerText = count;
    } else {
     clearInterval(timerID)
-    messageEl.style.visibility = 'hidden';
+    // messageEl.style.visibility = 'hidden';
     cbFunc();
    }
   }, 600)
@@ -236,9 +239,9 @@ function hideDog(tileIdx) {
 
 function displayResults() {
  if (win === 'Y') {
-     messageBoardEl.innerText = "You win!"
+     messageEl.innerText = "You win!";
      } else if (win === 'N') {
-     messageBoardEl.innerText = "Try again!"
+     messageEl.innerText = "Try again!";
     }
   }
  }
