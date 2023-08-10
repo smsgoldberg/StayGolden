@@ -145,10 +145,12 @@ function evaluatePairs(firstChoiceIdx, secondChoiceIdx, match) {
     matchedPairsArray.push(firstChoiceIdx);
     matchedPairsArray.push(secondChoiceIdx);
   } else {
+    setTimeout(() => {
     showToken(firstChoiceIdx);
     showToken(secondChoiceIdx);
     hideDog(firstChoiceIdx);
     hideDog(secondChoiceIdx);
+  }, 1000);
   }
   console.log('this is matched pairs array', matchedPairsArray)
 }
