@@ -227,7 +227,7 @@ function hideDog(tileIdx) {
  }
 
  function checkWinner() {
-  if (matchedPairsArray.length === 16 && count >= 0) {
+  if (matchedPairsArray.length === 16 && count > 0) {
     win = 'Y';
     gameOver = true;
     displayResults();
