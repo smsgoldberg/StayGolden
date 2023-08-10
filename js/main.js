@@ -150,7 +150,7 @@ function evaluatePairs(firstChoiceIdx, secondChoiceIdx, match) {
     showToken(secondChoiceIdx);
     hideDog(firstChoiceIdx);
     hideDog(secondChoiceIdx);
-  }, 1000);
+  }, 500);
   }
   console.log('this is matched pairs array', matchedPairsArray)
 }
