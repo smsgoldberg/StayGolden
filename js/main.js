@@ -74,6 +74,7 @@ playAgainButton.addEventListener('click', () => {
   initializeGame(); 
   renderClock(); 
 });
+
 //allows the player to click on a tile to make a move
 document.getElementById('board').addEventListener('click', handleMove);
 
@@ -83,9 +84,8 @@ initializeGame();
 
 //this function initializes each new game 
 function initializeGame() {
-  //the win condition will be set to null
+ win = null;
  match = null;
- endCondition = null;
  //shuffle the tiles
  shuffledTiles = shuffleTiles(mergedDogArray)
  console.log(shuffledTiles);
