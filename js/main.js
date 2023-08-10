@@ -85,6 +85,7 @@ initializeGame();
 
 //this function initializes each new game 
 function initializeGame() {
+ gameOver = false;
  win = null;
  match = null;
  //shuffle the tiles
