@@ -63,7 +63,7 @@ let matchedPairsArray = [];
  let messageEl = document.querySelector('h2');
  let playAgainButton = document.querySelector('button');
  let tiles = [...document.querySelectorAll('.circles')];
- //take out variable below and see what happens to code
+//take out variable below and see what happens to code
  let covers = [...document.querySelectorAll('.game-token')];
  console.log(covers);
 //let tileIdx = tiles.indexOf(event.target);
@@ -218,7 +218,7 @@ function hideDog(tileIdx) {
    count--
    if (count  && gameOver===false) {
     messageEl.innerText = count;
-   } else if (gameOver === true) {
+   } else {
     clearInterval(timerID)
     // messageEl.style.visibility = 'hidden';
     cbFunc();
