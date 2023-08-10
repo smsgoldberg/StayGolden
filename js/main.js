@@ -90,8 +90,7 @@ function initializeGame() {
   populateBoard();
   //start the clock
   renderClock(() => {
-    //checkWin();
-    //gameResults();
+    checkWin();
   }
   );
 }
@@ -214,16 +213,24 @@ function hideDog(tileIdx) {
 
  }
 
- /*function checkWin() {
-    if (matchedPairsArray.length = 16) {
-      win = 'Y';
-      gameOver = true;
-      messageEl.innerText = "You win!";
-    } else {
-      win = 'N'
-    }
- }
+ function checkWinner() {
+  if (matchedPairsArray.length === 16 && count >= 0) {
+    win = 'Y';
+    gameOver = true;
+    displayResults();
+} else if (matchedPairsArray.length < 16 && count === 0) {
+    win = 'N';
+    gameOver = true;
+    displayResults();
+} else {
+    return;
+}
 
- function gameResults() {
-    if (win = 'Y')
- }*/
+function displayResults() {
+ if (win === 'Y') {
+     messageBoardEl.innerText = "You win!"
+     } else if (win === 'N') {
+     messageBoardEl.innerText = "Try again!"
+    }
+  }
+ }
