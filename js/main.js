@@ -116,7 +116,7 @@ function populateBoard() {
   tiles.forEach((circle, circleIdx) => {
     console.log('this is circle', circle);
     console.log('this is circleIdx', circleIdx);
-     tiles[circleIdx].style.backgroundImage = shuffledTiles[circleIdx].backgroundImage; 
+     //tiles[circleIdx].style.backgroundImage = shuffledTiles[circleIdx].backgroundImage; 
      tiles[circleIdx].querySelector('img').setAttribute('src', shuffledTiles[circleIdx].backgroundImage);
     hideDog(circleIdx);
     showToken(circleIdx);
@@ -126,7 +126,7 @@ function populateBoard() {
 
  //compare the user's choices
  function compareChoices(firstChoice, secondChoice) {
-  if (firstChoice.src === secondChoice.src) {
+  if (firstChoice.src === secondChoice.src && firstClickChoiceIdx != secondClickChoiceIdx) {
     console.log('Match');
     match = true;
   } else {
@@ -181,7 +181,9 @@ function hideToken(tileIdx) {
   //if no first click has been made, the first move will be recorded here
   if (!firstClickChoice) {
     firstClickChoice = tiles[tileIdx].children[0].children[0];
+    console.log('this is firstClickChoice', firstClickChoice)
     firstClickChoiceIdx = tileIdx;
+    console.log('this is firstClickChoiceIdx', firstClickChoiceIdx)
    hideToken(tileIdx);
    showDog(firstClickChoice);
   } 
