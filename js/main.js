@@ -218,7 +218,7 @@ function hideDog(tileIdx) {
    count--
    if (count  && gameOver===false) {
     messageEl.innerText = count;
-   } else {
+   } else if (gameOver === true) {
     clearInterval(timerID)
     // messageEl.style.visibility = 'hidden';
     cbFunc();
