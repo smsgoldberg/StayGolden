@@ -73,7 +73,6 @@ let matchedPairsArray = [];
 //enables player to reset the board for a new game
 playAgainButton.addEventListener('click', () => {
   initializeGame(); 
-  renderClock(); 
 });
 
 //allows the player to click on a tile to make a move
