@@ -1,3 +1,4 @@
+/*-- image array for objects--*/
 const imageArray = [];
 
 /*---objects---*/
@@ -37,10 +38,8 @@ imageArray.push(runningDog);
 
 
 /*-----constants -----*/
-//we will keep all our images in an image array - and randomize their positioning everytime the game is initialized
 const matchArray = Array.from(imageArray);
 const mergedDogArray = imageArray.concat(matchArray);
-console.log(mergedDogArray);
 let shuffledTiles;
 
 
@@ -56,25 +55,21 @@ let firstClickChoiceIdx;
 let secondClickChoiceIdx;
 let match;
 let timerId;
-//holds our matched pairs when we find a match
 let matchedPairsArray = [];
 
 /*---cached elements---*/
- let messageEl = document.querySelector('h2');
- let playAgainButton = document.querySelector('button');
- let tiles = [...document.querySelectorAll('.circles')];
-//take out variable below and see what happens to code
- let covers = [...document.querySelectorAll('.game-token')];
- console.log(covers);
+let messageEl = document.querySelector('h2');
+let playAgainButton = document.querySelector('button');
+let tiles = [...document.querySelectorAll('.circles')];
+let covers = [...document.querySelectorAll('.game-token')];
 
 
 
 /* --- event listeners ---  */
-//enables player to reset the board for a new game
+
 playAgainButton.addEventListener('click', () => {
   initializeGame(); 
 });
-
 //allows the player to click on a tile to make a move
 document.getElementById('board').addEventListener('click', handleMove);
 
@@ -89,11 +84,8 @@ function initializeGame() {
  win = null;
  match = null;
  shuffledTiles = shuffleTiles(mergedDogArray)
- console.log(shuffledTiles);
- //populate the game board
-  populateBoard();
-  //start the clock
-  clearInterval(timerId);
+ populateBoard();
+ clearInterval(timerId);
   renderClock(() => {
     checkWinner();
   }
@@ -112,12 +104,9 @@ function shuffleTiles(dogArray) {
   return dogArray;
  }
 
+ //populate the board by assigning an image from shuffledTiles to each circle
 function populateBoard() {
- //we should probably use forEach to populate the board elements 
   tiles.forEach((circle, circleIdx) => {
-    console.log('this is circle', circle);
-    console.log('this is circleIdx', circleIdx);
-     //tiles[circleIdx].style.backgroundImage = shuffledTiles[circleIdx].backgroundImage; 
      tiles[circleIdx].querySelector('img').setAttribute('src', shuffledTiles[circleIdx].backgroundImage);
     hideDog(circleIdx);
     showToken(circleIdx);
@@ -125,23 +114,17 @@ function populateBoard() {
     playAgainButton.visibility = 'hidden';
  }
 
- //compare the user's choices
+
  function compareChoices(firstChoice, secondChoice) {
   if (firstChoice.src === secondChoice.src && firstClickChoiceIdx != secondClickChoiceIdx) {
-    console.log('Match');
     match = true;
   } else {
-    console.log('Not a match');
     match = false;
   }
    return match;
 }
 
 function evaluatePairs(firstChoiceIdx, secondChoiceIdx, match) {
-  console.log('this is evaluate pairs', evaluatePairs);
-  console.log('this is firstChoiceIdx', firstChoiceIdx);
-  console.log('this is secondChoiceIdx', secondChoiceIdx);
-  console.log('this is match', match);
   if (match === true && matchedPairsArray.length <=16) {
     matchedPairsArray.push(firstChoiceIdx);
     matchedPairsArray.push(secondChoiceIdx);
@@ -153,7 +136,6 @@ function evaluatePairs(firstChoiceIdx, secondChoiceIdx, match) {
     hideDog(secondChoiceIdx);
   }, 500);
   }
-  console.log('this is matched pairs array', matchedPairsArray)
 }
 
 
@@ -182,9 +164,7 @@ function hideToken(tileIdx) {
   //if no first click has been made, the first move will be recorded here
   if (!firstClickChoice) {
     firstClickChoice = tiles[tileIdx].children[0].children[0];
-    console.log('this is firstClickChoice', firstClickChoice)
     firstClickChoiceIdx = tileIdx;
-    console.log('this is firstClickChoiceIdx', firstClickChoiceIdx)
    hideToken(tileIdx);
    showDog(firstClickChoice);
   } 
